@@ -8,7 +8,7 @@ import java.util.Optional;
 public class UserService {
     private final UserStorage userStorage;
 
-    public UserService()
+    public UserService(UserStorage storage)
     {
         this.userStorage = storage;
     }
