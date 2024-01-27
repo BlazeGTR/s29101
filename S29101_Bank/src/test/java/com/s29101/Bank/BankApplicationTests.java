@@ -116,6 +116,45 @@ class BankApplicationTests {
 		assertThat(ret.getStatusCode()).isEqualTo(0);
 		assertThat(ret.getNoweSaldo()).isEqualTo(900);
 	}
+
+	@Test
+	void shouldReturnError1FromReceive()
+	{
+		//GIVEN
+		userStorage.addUser(new User(1,1000,"ABC","DEF"));
+
+		//WHEN
+		ReturnInfoObject ret = userService.receiveTransfer(2,100);
+
+		//THEN
+		assertThat(ret.getStatusCode()).isEqualTo(1);
+	}
+
+	@Test
+	void shouldReturnNoErrorFromReceive()
+	{
+		//GIVEN
+		userStorage.addUser(new User(1,1000,"ABC","DEF"));
+
+		//WHEN
+		ReturnInfoObject ret = userService.receiveTransfer(1,100);
+
+		//THEN
+		assertThat(ret.getStatusCode()).isEqualTo(0);
+	}
+
+	@Test
+	void shouldReturnNoErrorFromReceive2()
+	{
+		//GIVEN
+		userStorage.addUser(new User(1,0,"ABC","DEF"));
+
+		//WHEN
+		ReturnInfoObject ret = userService.receiveTransfer(1,250);
+
+		//THEN
+		assertThat(ret.getStatusCode()).isEqualTo(0);
+	}
 }
 
 

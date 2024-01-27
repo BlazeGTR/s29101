@@ -10,6 +10,6 @@ public class UserStorage {
     private List<User> users = new ArrayList<>();
 
     public List<User> getListaUserow() { return users; }
-    public void addUser(User user) {users.add(user); }
+    public void addUser(User user) { users.add(user); }
     public void purgeList() { users.clear(); }
 }

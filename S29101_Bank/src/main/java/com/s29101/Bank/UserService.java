@@ -12,6 +12,12 @@ public class UserService {
     {
         this.userStorage = storage;
     }
+    public User registerUser(double startSaldo,String imie, String nazwisko)
+    {
+        User newUser = new User(userStorage.getListaUserow().size(),startSaldo, imie, nazwisko);
+        userStorage.addUser(newUser);
+        return newUser;
+    }
 
     public Optional<User> findUserByID(int id) {
         return userStorage.getListaUserow().stream()
@@ -28,7 +34,7 @@ public class UserService {
         return new ReturnInfoObject(0, userByID.getSaldo());
     }
 
-    public ReturnInfoObject recieveTransfer(int id, double value)
+    public ReturnInfoObject receiveTransfer(int id, double value)
     {
         User userByID = findUserByID(id).orElse(null);
         if(userByID == null){return new ReturnInfoObject(1,0);}
