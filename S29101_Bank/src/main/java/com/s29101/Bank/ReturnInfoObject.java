@@ -6,7 +6,7 @@ public class ReturnInfoObject {
 
     public ReturnInfoObject(int code, double saldo)
     {
-        statusCode = code;
+        statusCode = code;  // 0 = ACCEPTED, wszystkie inne to declined z różnych powodów
         noweSaldo = saldo;
     }
 
