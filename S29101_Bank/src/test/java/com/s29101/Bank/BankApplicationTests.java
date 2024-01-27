@@ -155,6 +155,7 @@ class BankApplicationTests {
 		//THEN
 		assertThat(ret.getStatusCode()).isEqualTo(0);
 	}
+
 }
 
 
